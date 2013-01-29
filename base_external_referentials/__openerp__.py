@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2009 Akretion (<http://www.akretion.com>). All Rights Reserved
 #    authors: Raphaël Valyi, Sharoon Thomas
 #
@@ -23,9 +23,12 @@
 
 {
     'name': 'Base External Referentials',
-    'version': '1.0',
+    'version': '6.1.0',
     'category': 'Generic Modules/Base',
     'description': """
+Definition : a referential is an external system that will interacts with OpenERP
+Goal : store external system connection details and objects fields mapping
+
 This module provide an abstract common minimal base to add any additional external id columns
 to some OpenObject table, pointing to some external referential.
 A referential is abstract and minimal at this stage, it only has:
@@ -45,11 +48,17 @@ to customize their field mapping directly in OpenERP to accomodate the external 
     """,
     'author': 'Raphaël Valyi (Akretion.com), Sharoon Thomas (Openlabs.co.in)',
     'website': 'http://www.akretion.com, http://openlabs.co.in/',
-    'depends': ['base'],
+    'depends': ['base','base_pop_up', 'base_file_protocole', 'email_template'],
     'init_xml': [],
-    'update_xml': ['base_external_referentials_view.xml',
-                   'report_view.xml',
-                   'base_external_referentials_menu.xml',],
+    'update_xml': [
+        'external_referentials_view.xml',
+        'report_view.xml',
+        'external_referentials_menu.xml',
+        'security/ir.model.access.csv',
+        'group_fields_view.xml',
+        'security/base_external_referentials_security.xml',
+        'report_mail_template.xml',
+    ],
     'demo_xml': [],
     'installable': True,
     'certificate': '',

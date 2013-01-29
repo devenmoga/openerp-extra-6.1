@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2009 Akretion (<http://www.akretion.com>). All Rights Reserved
 #    authors: Raphaël Valyi, Sharoon Thomas
-#
+#    Copyright (C) 2010-2011 Akretion Sébastien BEAU <sebastien.beau@akretion.com>
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -23,7 +23,7 @@
 
 {
     'name': 'Base Sale MultiChannels',
-    'version': '1.0',
+    'version': '6.1.2',
     'category': 'Generic Modules/Sale',
     'description': """
 This module provide an abstract common minimal base to multi-channels sales.
@@ -47,16 +47,29 @@ For each sale shop (matching OpenERP sale.shop object), this module abstract the
 * import orders
 * export orders/picking status
     """,
-    'author': 'Raphaël Valyi (Akretion.com), Sharoon Thomas (Openlabs.co.in)',
+    'author': 'Akretion, Sharoon Thomas (Openlabs.co.in)',
     'website': 'http://www.akretion.com',
-    'depends': ['sale', 'base_external_referentials', 'account_voucher', 'delivery'],
+    'depends': [
+        'sale_automatic_workflow',
+        'sale_exceptions',
+        'base_external_referentials',
+        'delivery',
+        'base_onchange_player',
+    ],
     'init_xml': [],
     'update_xml': [
         'security/ir.model.access.csv',
         'sale_view.xml',
-        'report_view.xml',
-        'wizard/export_product.xml',
+        'partner_view.xml',
+        'invoice_view.xml',
+        'wizard/import_order.xml',
         'delivery_view.xml',
+        'base_sale_data.xml',
+        'settings/sale.exception.csv',
+        'settings/external.referential.category.csv',
+        'stock_view.xml',
+        'payment_method_view.xml',
+        'account_view.xml',
     ],
     'demo_xml': [],
     'installable': True,

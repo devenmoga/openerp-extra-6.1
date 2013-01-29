@@ -22,8 +22,13 @@
 
 import sale
 import stock
-import report
 import wizard
 import delivery
+import partner
+import account
+import external_referential
+import product
+import invoice
+import payment_method
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
